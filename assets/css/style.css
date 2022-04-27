@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+  }
+
+  header {
+      color: purple;
+      font-size: large;
+      display: inline;
+      justify-content: space-between;
+      display: flex;
+      
+  }
+
+  .quiz-Card {
+      border-radius: 50px;
+      text-align: center;
+      padding: 20px;
+      display: block;
+      margin: 60px auto;
+      width: 40vw;
+  }
+
+  .start-Button {
+      color: white;
+      background-color: purple;
+      padding: 10px;
+  }
+
+  .timer-Count {
+
+  }
