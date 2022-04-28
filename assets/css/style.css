@@ -4,12 +4,30 @@
 
   header {
       color: purple;
-      font-size: large;
+      font-size: larger;
       display: inline;
       justify-content: space-between;
       display: flex;
       
   }
+
+h1 {
+    font-weight: bold;
+}
+
+  #question-Card {
+      display: none;
+
+  }
+
+.question-Card {
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 10px;
+    display: block;
+    margin-top: 100px;
+}
 
   .quiz-Card {
       border-radius: 50px;
@@ -20,10 +38,27 @@
       width: 40vw;
   }
 
+.answer {
+    border: solid purple;
+    background-color: purple;
+    display: block;
+    margin-left: 180px;
+    margin-right: 600px;
+    text-align: left;
+    color: white;
+    padding: 10px;
+    padding-right: 50px;
+
+}
+
   .start-Button {
       color: white;
       background-color: purple;
-      padding: 10px;
+      padding: 20px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
   }
 
   .timer-Count {
