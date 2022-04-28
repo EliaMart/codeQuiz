@@ -2,9 +2,10 @@
 
 
 // Global Variables
-var startButton = document.querySelector(".start-Button")
-var quiz = document.querySelector(".quiz-Card")
 var timerElement = document.querySelector(".timer-Count")
+var quiz = document.querySelector(".quiz-Card")
+var startButton = document.querySelector(".start-Button")
+var elements = document.querySelector("#question-Card")
 var log = document.querySelector("#initial-log")
 
 var timer;
