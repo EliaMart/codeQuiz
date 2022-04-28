@@ -15,10 +15,13 @@ h1 {
     font-weight: bold;
 }
 
-  #question-Card {
+ #question-Card {
       display: none;
-
   }
+
+#initial-log {
+    display: none;
+}
 
 .question-Card {
     text-align: center;
@@ -37,6 +40,10 @@ h1 {
       margin: 60px auto;
       width: 40vw;
   }
+
+.option {
+    
+}
 
 .answer {
     border: solid purple;

@@ -5,10 +5,11 @@
 var startButton = document.querySelector(".start-Button")
 var quiz = document.querySelector(".quiz-Card")
 var timerElement = document.querySelector(".timer-Count")
-
+var log = document.querySelector("#initial-log")
 
 var timer;
 var timerCount;
+var startQuiz;
 // var correctCounter =
 // var wrongCounter =
 
@@ -110,8 +111,9 @@ function answerQuestion (event) {
   index +=1 
   if (index <= 4) {
     loadQuestion(index)
-  }
-
+  } else
+    document.getElementById("question-Card").style.display = "none";
+    document.getElementById("inital-log").style.display = "block";
 
 }
 
@@ -135,12 +137,6 @@ function storedAnswers() {
 // goBack.addEventlistener()
 
   startButton.addEventListener("click", startQuiz)
-// startQuiz();
 
+// .textContent = ("Your final score is" + finalScore);
 
-
-
-// if answer = true 
-// .textContent = Correct;
-// else 
-// .textContent = Incorrect;
