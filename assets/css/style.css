@@ -23,6 +23,10 @@ h1 {
     display: none;
 }
 
+#highscores {
+    display: none;
+}
+
 .question-Card {
     text-align: center;
     margin-left: 200px;

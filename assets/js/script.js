@@ -5,16 +5,18 @@
 var timerElement = document.querySelector(".timer-Count")
 var quiz = document.querySelector(".quiz-Card")
 var startButton = document.querySelector(".start-Button")
-var elements = document.querySelector("#question-Card")
-var log = document.querySelector("#initial-log")
+var questionEl = document.getElementById("#question-Card")
+var answerEl1 = document.getElementById("option-1")
+var answerEl2 = document.getElementById("option-2")
+var answerEl3 = document.getElementById("option-3")
+var answerEl4 = document.getElementById("option-4")
+var logInput = document.querySelector("#initial-log")
+var highscores = document.querySelector("#highscores")
 
+var index = 0
 var timer;
 var timerCount;
 var startQuiz;
-// var correctCounter =
-// var wrongCounter =
-
-
 
 // questions, answers and correct answers in variable 
 var questions =  [ 
@@ -70,6 +72,7 @@ function startQuiz () {
     index= 0;
 
     loadQuestion(index)
+    startTimer()
 
 };
 
@@ -78,14 +81,11 @@ function startTimer() {
     timerCount--;
     timerElement.textContent = timerCount;
     if (timerCount >= 0) {
-      // Tests if win condition is met
-      if (winQuiz && timerCount > 0) {
-        // Clears interval and stops timer
+      if ( answerQuestion && timerCount > 0) {
         clearInterval(timer);
-        endQuiz();
       }
     }
-    // Tests if time has run out
+
     if (timerCount === 0) {
       clearInterval(timer);
       endQuiz();
@@ -94,50 +94,72 @@ function startTimer() {
   }, 1000);
 }
 
+// when i comment out 83 - 93, my timer works accordingly to my answerquestion function. 
+
+
 function loadQuestion(index) {
   document.getElementById("questionText").innerHTML = questions[index]["question"]
-  document.getElementById("option-1").innerHTML = questions[index]["answers"][0]
-  document.getElementById("option-2").innerHTML = questions[index]["answers"][1]
-  document.getElementById("option-3").innerHTML = questions[index]["answers"][2]
-  document.getElementById("option-4").innerHTML = questions[index]["answers"][3]
+  answerEl1.innerHTML = questions[index]["answers"][0]
+  answerEl2.innerHTML = questions[index]["answers"][1]
+  answerEl3.innerHTML = questions[index]["answers"][2]
+  answerEl4.innerHTML = questions[index]["answers"][3]
+
+    answerEl1.addEventListener("click", answerQuestion)
+    answerEl2.addEventListener("click", answerQuestion)
+    answerEl3.addEventListener("click", answerQuestion)
+    answerEl4.addEventListener("click", answerQuestion)
+    
+
 }
 
 function answerQuestion (event) {
+  console.log(event)
   var answered = event.target.innerHTML
   if (answered === questions[index]["correctAnswer"]) {
     timerCount += 10
+    console.log("Correct");
  } else {  
    timerCount -= 15
+   console.log("Incorrect");
   }
   index +=1 
   if (index <= 4) {
     loadQuestion(index)
   } else
-    document.getElementById("question-Card").style.display = "none";
-    document.getElementById("inital-log").style.display = "block";
+    document.getElementById("question-Card").style.display = "none"
+    document.querySelector("logInput").style.display = "block"
 
 }
 
 function endQuiz () {
+      blankMsg.textContent = "Your score is" + timerCount
+  document.getElementById("question-Card").style.dusplay = "none"
+  document.getElementById("initial-log").style.display = "block"
+}
+
+function setAnswers() {
+   timerElement.textContent = timerCount;
+    localStorage.setItem("timerCount", timerCount);
+
+}
 
 
+function getAnswers() {
+    var storedAnswers =  localStorage.setItem("timerCount", timerCount);
+    if(storedAnswers === null) {
+      timerCount = 0
+    } else {
+        timerCount = storedAnswers;
+    }
+    timerElement.textContent = timerCount
+}
+
+function init () {
+  getAnswers();
 };
 
-function setCorrect() {
-  //  .textContent = ;
-    localStorage.setItem("correctCount", correctCounter);
+init();
+// goBack.addEventlistener("click, startQuiz")
 
-}
-
-
-function storedAnswers() {
-    localStorage.setItem("",)
-
-
-}
-// goBack.addEventlistener()
-
-  startButton.addEventListener("click", startQuiz)
-
-// .textContent = ("Your final score is" + finalScore);
+startButton.addEventListener("click", startQuiz)
 
