@@ -129,7 +129,7 @@ function endQuiz () {
   document.getElementById("initial-log").style.display = "block"
   scoreMsg.textContent = "Your score is " + timerCount;
 
-  if (submitbutton ===) {
+  if (submitbutton) {
     document.getElementById("highscores").style.display = "block"
     document.getElementById("initial-log").style.display = "none"
   }
