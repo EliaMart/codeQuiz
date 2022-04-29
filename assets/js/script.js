@@ -11,6 +11,7 @@ var answerEl2 = document.getElementById("option-2")
 var answerEl3 = document.getElementById("option-3")
 var answerEl4 = document.getElementById("option-4")
 var logInput = document.querySelector("#initial-log")
+var submitbutton = document.querySelector("submitbttn")
 var highscores = document.querySelector("#highscores")
 
 var index = 0
@@ -80,11 +81,6 @@ function startTimer() {
   timer = setInterval(function() {
     timerCount--;
     timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
-      if ( answerQuestion && timerCount > 0) {
-        clearInterval(timer);
-      }
-    }
 
     if (timerCount === 0) {
       clearInterval(timer);
@@ -93,8 +89,6 @@ function startTimer() {
 
   }, 1000);
 }
-
-// when i comment out 83 - 93, my timer works accordingly to my answerquestion function. 
 
 
 function loadQuestion(index) {
@@ -123,18 +117,23 @@ function answerQuestion (event) {
    console.log("Incorrect");
   }
   index +=1 
-  if (index <= 4) {
+  if (index <= 3) {
     loadQuestion(index)
-  } else
-    document.getElementById("question-Card").style.display = "none"
-    document.querySelector("logInput").style.display = "block"
+  } else {
+    endQuiz()
 
-}
+}}
 
 function endQuiz () {
-      blankMsg.textContent = "Your score is" + timerCount
-  document.getElementById("question-Card").style.dusplay = "none"
+  document.getElementById("question-Card").style.display = "none"
   document.getElementById("initial-log").style.display = "block"
+  scoreMsg.textContent = "Your score is " + timerCount;
+
+  if (submitbutton ===) {
+    document.getElementById("highscores").style.display = "block"
+    document.getElementById("initial-log").style.display = "none"
+  }
+
 }
 
 function setAnswers() {
