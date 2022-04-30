@@ -17,6 +17,8 @@ var highScoresButton = document.querySelector("#hi-scores-button");
 var questionCard = document.getElementById("question-Card");
 var goBackButton = document.querySelector("#go-back");
 var form = document.querySelector("#my-form");
+var scoreIn = document.querySelector("#score-Initials")
+var clearButton = document.querySelector("#clear-bttn")
 
 var index = 0;
 var timer;
@@ -89,6 +91,7 @@ function startTimer() {
     timerElement.textContent = timerCount;
 
     if (timerCount === 0) {
+      timerElement.style.display = "none";
       endQuiz();
     }
   }, 1000);
@@ -129,38 +132,34 @@ function endQuiz() {
   clearAll();
   logInput.style.display = "block"
   scoreMsg.textContent = "Your score is " + timerCount;
+  localStorage.setItem("timerCount", timerCount);
+  console.log(timerCount);
 }
 
-
+function saveInitials(submitVal) {
+  localStorage.setItem("Initials", submitVal);
+  console.log(submitVal)
+};
 
 function showHighScores() {
   clearAll();
-  highScores.style.display = "block";
-//   renderHighScores();
+  highScores.style.display = "block"
+  renderAnswers();
+  saveInitials(submitVal);
 }
 
-// function renderHighScores() {
-//   var score = localStorage.getItem("timerCount");
-//   var inputInitials = localStorage.getItem("logInput");
-
-//   logInput.textContent = inputInitials;
-//   timerElement.textContent = score;
-// };
 
 
-function setAnswers() {
-  timerElement.textContent = timerCount;
-  localStorage.setItem("timerCount", timerCount);
-}
+function renderAnswers() {
+  var storedTime =  localStorage.getItem("timerCount");
+  console.log(storedTime);
+  storedTime = timerCount;
 
-function getAnswers() {
-  var storedAnswers =  localStorage.setItem("timerCount", timerCount);
-  // if (storedAnswers === null) {
-  //   timerCount = 0;
-  // } else {
-    timerCount = storedAnswers;
-// }
-  timerElement.textContent = timerCount;
+  // var storedInitial = localStorage.getItem("Initials");
+  // storedInitial = submitVal;
+
+  scoreIn.textContent = storedTime;
+  // scoreIn.textContent = saveInitials;
 }
 
 function showQuiz() {
@@ -174,37 +173,26 @@ function submitForm(event) {
   console.log('Initials:', input);
   console.log('Score:', timerCount);
   event.preventDefault();
+  timerElement.style.display = "none";
   clearAll();
   showHighScores();
-  localStorage.setItem("timerCount", timerCount);
-  localStorage.setItem("logInput", logInput);
+  saveInitials(input);
 }
+
+// function clearScores () {
+//   scoreIn.style.display ="none";
+//   localStorage.clear();
+// }
 
 function init() {
   startButton.addEventListener("click", startQuiz);
   highScoresButton.addEventListener("click", showHighScores);
   goBackButton.addEventListener("click", showQuiz);
   form.addEventListener("submit", submitForm);
-  getAnswers();
-  // renderHighScores();
+  // clearButton.addEventListener("click", clearScores)
+  renderAnswers();
+  saveInitials();
 }
 
 init();
-
-
-
-
-//   // localStorage.setItem("timerCount", timerCount;
-//   // localStorage.setItem("logInput", logInput);
-//   // renderHighScores();
-// }
-
-
-// function renderHighScores() {
-//   var score = localStorage.getItem("score");
-//   var inputInitials = localStorage.getItem("inputInitials");
-
-// logInput.textContent = inputInitials;
-// timerElement.textContent = score;
-// }
 

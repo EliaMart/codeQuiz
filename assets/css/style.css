@@ -44,12 +44,14 @@ h1 {
       margin: 60px auto;
       width: 40vw;
   }
+ 
+/* #option-List {
+    color: white;
+    background-color: purple;
+    display: block;
+} */
 
-.option {
-    
-}
-
-/* .answer {
+.answer {
     border: solid purple;
     background-color: purple;
     display: block;
@@ -57,10 +59,11 @@ h1 {
     margin-right: 600px;
     text-align: left;
     color: white;
-    padding: 10px;
+    padding: px;
     padding-right: 50px;
+    justify-content: space-between;
 
-} */
+}
 
   .start-Button {
       color: white;
