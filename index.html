@@ -11,9 +11,10 @@
 
 <body>
     <header>
-        <button> View Highscores </button>
+        <button id="hi-scores-button"> View Highscores </button>
         <div class="timer-Count">Timer</div>
     </header>
+
 
     <main>
         <div id="quiz-Card" class="quiz-Card">
@@ -34,13 +35,12 @@
                 <button id="option-3" class="answer"></button>
                 <button id="option-4" class="answer"></button>
             </div>
-            
         </div>
 
         <div id="initial-log">
             <h2>All Done!</h2>
             <div id="scoreMsg"></div>
-            <form> 
+            <form id="my-form">  
                 <label for="type">Enter Initals</label>
                 <input id="initials" type="text">
                 <button id="submitbttn">Submit</button>
@@ -50,7 +50,7 @@
         <div id="highscores">
             <h2>Highscores</h2>
             <span></span>
-            <button>Go Back</button>
+            <button id="go-back">Go Back</button>
             <button>Clear Highscores</button>
         </div>
 
