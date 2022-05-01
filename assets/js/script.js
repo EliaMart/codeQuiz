@@ -17,8 +17,8 @@ var highScoresButton = document.querySelector("#hi-scores-button");
 var questionCard = document.getElementById("question-Card");
 var goBackButton = document.querySelector("#go-back");
 var form = document.querySelector("#my-form");
-var scoreIn = document.querySelector("#score-Initials")
-var clearButton = document.querySelector("#clear-bttn")
+var scoreIn = document.querySelector("#score-Initials");
+var clearButton = document.querySelector("#clear-bttn");
 
 var index = 0;
 var timer;
@@ -145,7 +145,6 @@ function showHighScores() {
   clearAll();
   highScores.style.display = "block"
   renderAnswers();
-  saveInitials(submitVal);
 }
 
 
@@ -155,11 +154,10 @@ function renderAnswers() {
   console.log(storedTime);
   storedTime = timerCount;
 
-  // var storedInitial = localStorage.getItem("Initials");
-  // storedInitial = submitVal;
+  var storedInitial = localStorage.getItem("Initials");
+  submitVal = storedInitial;
 
-  scoreIn.textContent = storedTime;
-  // scoreIn.textContent = saveInitials;
+  scoreIn.textContent = storedTime  + storedInitial;
 }
 
 function showQuiz() {
@@ -179,19 +177,19 @@ function submitForm(event) {
   saveInitials(input);
 }
 
-// function clearScores () {
-//   scoreIn.style.display ="none";
-//   localStorage.clear();
-// }
+function clearScores () {
+  scoreIn.style.display ="none";
+  localStorage.clear();
+}
 
 function init() {
   startButton.addEventListener("click", startQuiz);
   highScoresButton.addEventListener("click", showHighScores);
   goBackButton.addEventListener("click", showQuiz);
   form.addEventListener("submit", submitForm);
-  // clearButton.addEventListener("click", clearScores)
+  clearButton.addEventListener("click", clearScores)
   renderAnswers();
-  saveInitials(input);
+  // saveInitials(input);
 }
 
 init();
