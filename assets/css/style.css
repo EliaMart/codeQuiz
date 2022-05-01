@@ -3,16 +3,27 @@
   }
 
   header {
-      color: purple;
-      font-size: larger;
+      color: rgb(74, 165, 207);
+      font-size: x-large;
       display: inline;
       justify-content: space-between;
       display: flex;
+      text-decoration: underline;
       
   }
 
 h1 {
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+p {
+    font-size: large;
 }
 
  #question-Card {
@@ -21,15 +32,52 @@ h1 {
 
 #initial-log {
     display: none;
+
 }
 
 #highscores {
     display: none;
 }
 
+#scoreMsg {
+    font-size: 30px;
+}
+
+#hi-scores-button {
+    background-color: rgb(74, 165, 207);
+    border: solid rgb(45, 175, 106);
+    border: solid thin;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: large;
+}
+
+#questionText {
+    font-size: xx-large;
+}
+
+#my-form {
+    font-size: 20px;
+    margin-top: 130;
+    margin-left: 400
+}
+
+#submitbttn, #clear-bttn, #go-back {
+    border: solid rgb(45, 175, 106);
+    color: white;
+    font-size: large;
+    background-color:rgb(74, 165, 207);
+}
+
+#score-Initials {
+    font-size: 20px;
+}
+
+
+
 .question-Card {
     text-align: center;
-    margin-left: 200px;
+    margin-left: 100px;
     margin-right: 200px;
     padding: 10px;
     display: block;
@@ -45,36 +93,37 @@ h1 {
       width: 40vw;
   }
 
-/* #option-List {
-    color: white;
-    background-color: purple;
-    display: block;
-} */
 
 .answer {
-    border: solid purple;
-    background-color: purple;
+    border: solid rgb(45, 175, 106);
+    background-color: rgb(74, 165, 207);
     display: block;
-    margin-left: 180px;
-    margin-right: 600px;
-    text-align: left;
+    margin-left: 150px;
+    margin-right: 200px;
     color: white;
-    padding: px;
+    padding: 10px;
     padding-right: 50px;
-    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 5px;
 
 }
 
+.answer:hover {
+    cursor: pointer;
+}
+
+.start-Button:hover {
+    cursor: pointer;
+}
+
   .start-Button {
+      border: solid rgb(45, 175, 106);
       color: white;
-      background-color: purple;
+      font-size: large;
+      background-color:rgb(74, 165, 207);
       padding: 20px;
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
       border-bottom-left-radius: 25px;
       border-bottom-right-radius: 25px;
-  }
-
-  .timer-Count {
-
-  }
+}
