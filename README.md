@@ -9,4 +9,6 @@ You will be scored by your final time in the upper right hand corner. If you ans
 Once the quiz is over or you have asnwered all the questions, you will be shown your score and asked to enter your initials. Once you submit you wil be shown your score with your initials next to it. You have the option to go back to take th quiz again or clear your high scores. 
 
 
+![Here is a photo of the wegpage.](./assets/images/Screen%20Shot%202022-05-04%20at%205.00.00%20PM.png)
+
 Here is the URL to my web application: https://eliamart.github.io/codeQuiz/

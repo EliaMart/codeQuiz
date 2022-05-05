@@ -189,7 +189,6 @@ function init() {
   form.addEventListener("submit", submitForm);
   clearButton.addEventListener("click", clearScores)
   renderAnswers();
-  // saveInitials(input);
 }
 
 init();
